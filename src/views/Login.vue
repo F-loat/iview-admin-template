@@ -3,7 +3,7 @@
   .login-bg
   .login-bg-cover
   Card.login-card
-    p(slot="title") Ourauto后台管理系统
+    p(slot="title") iview后台管理系统
     Form(
       ref="form",
       :model="form",
@@ -54,7 +54,7 @@ export default {
       this.$refs.form.validate(async (valid) => {
         if (!valid) return;
         const data = await api.createToken(this.form);
-        // if (!data) return;
+        if (!data) return;
         sessionStorage.setItem('token', data);
         this.$Message.success('登录成功');
         this.$router.replace(this.$route.query.redirect || '/');
